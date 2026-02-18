@@ -28,6 +28,6 @@ app.use((err, req, res, next) => {
 });
 const PORT = 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server started on port ${PORT}`);
+  console.log(`Server started on port ${PORT}`);
 });
 
