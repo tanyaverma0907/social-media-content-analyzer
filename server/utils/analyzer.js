@@ -1,7 +1,7 @@
-// function to check content basic engagement
+
 function analyzeText(content) {
 
-  // if content is empty and return 
+  
   if (!content || content.trim() === "") {
     return {
       score: 0,
@@ -19,7 +19,7 @@ function analyzeText(content) {
 
   const lowerText = content.toLowerCase();
 
-  //hastags
+  
   const hashtagMatches = content.match(/#/g);
   const hashtagCount = hashtagMatches ? hashtagMatches.length : 0;
 
@@ -30,7 +30,7 @@ function analyzeText(content) {
   }
 
 
-  //question
+  
   if (content.includes("?")) {
     score += 20;
   } else {
@@ -38,7 +38,7 @@ function analyzeText(content) {
   }
 
 
-  //length
+  
   if (totalWords >= 10 && totalWords <= 120) {
     score += 20;
   } else if (totalWords < 10) {
@@ -49,7 +49,7 @@ function analyzeText(content) {
 
 
   
-  //emotional words check
+
   const emotionList = ["amazing", "excited", "love", "wow", "awesome", "great"];
 
   let emotionFound = false;
@@ -70,7 +70,7 @@ function analyzeText(content) {
 
   
 
-  //call to check actions
+  
   const actionWords = ["comment", "share", "like", "follow", "click"];
 
   let actionFound = false;
