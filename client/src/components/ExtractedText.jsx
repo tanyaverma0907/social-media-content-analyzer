@@ -1,30 +1,26 @@
 import React from "react";
 
 function ExtractedText({ text }) {
-  if (!text) {
-    return (
-      <div className="bg-white rounded-2xl shadow-md p-6">
-        <h3 className="text-lg font-semibold mb-4">
-          Extracted Text
-        </h3>
-
-        <div className="text-gray-400 text-sm">
-          No content available. Upload a file or analyze text to see results.
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6">
-      <h3 className="text-lg font-semibold mb-4">
+    <div>
+
+      <h3 className="text-base font-semibold mb-3 text-gray-800">
         Extracted Text
       </h3>
-      <div className="max-h-96 overflow-y-auto text-sm text-gray-700 leading-relaxed whitespace-pre-wrap pr-2">
-        {text}
-      </div>
+
+      {!text ? (
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm text-gray-400">
+          No content available. Upload a file to see results.
+        </div>
+      ) : (
+        <div className="max-h-72 overflow-y-auto text-sm text-gray-700 leading-relaxed whitespace-pre-wrap pr-2 bg-gray-50 border border-gray-200 rounded-lg p-4">
+          {text}
+        </div>
+      )}
+
     </div>
   );
 }
 
 export default ExtractedText;
+

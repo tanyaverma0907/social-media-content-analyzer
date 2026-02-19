@@ -33,7 +33,7 @@ function Navbar() {
         border-b border-white/40 
         shadow-sm bg-linear-to-br from-purple-100 via-pink-100 to-white"
       >
-        <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-25 py-5 flex justify-between items-center">
 
           <h1
             onClick={scrollToTop}
@@ -127,5 +127,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-

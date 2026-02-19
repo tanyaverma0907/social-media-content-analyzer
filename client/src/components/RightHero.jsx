@@ -11,7 +11,7 @@ function RightHero() {
         <img
           src="/hero.jpg"  
           alt="Social Media Analytics"
-          className="w-105 rounded-2xl object-cover transition duration-500 hover:scale-105"
+          className="w-85 rounded-2xl object-cover transition duration-500 hover:scale-105"
         />
 
       </div>
@@ -21,4 +21,3 @@ function RightHero() {
 }
 
 export default RightHero;
-

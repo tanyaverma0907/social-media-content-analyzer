@@ -38,7 +38,7 @@ function UploadCard({ setResult }) {
     }
   };
 
-  // Drag Events
+
   const handleDrag = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -61,39 +61,35 @@ function UploadCard({ setResult }) {
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       const droppedFile = e.dataTransfer.files[0];
 
-      if (droppedFile.type !== "application/pdf") {
-        alert("Only PDF files allowed");
+      if (
+        droppedFile.type !== "application/pdf" &&
+        !droppedFile.type.startsWith("image/")
+      ) {
+        alert("Only PDF or image files allowed");
         return;
       }
 
       setFile(droppedFile);
     }
   };
+return (
+  <section
+    id="upload-section"
+    className="w-full py-16 px-6 lg:px-12 bg-white"
+  >
+    <div className="max-w-6xl mx-auto">
 
-  return (
-    <section
-      id="upload-section"
-      className="relative min-h-[80vh] flex items-center justify-center px-6 py-20"
-    >
-    
-      <div className="absolute inset-0 flex items-center justify-center -z-10">
-        <div className="w-175 h-175 bg-linear-to-br from-purple-500 to-pink-500 opacity-10 rounded-full blur-3xl"></div>
-      </div>
+      <div className="w-full bg-white rounded-2xl shadow-lg border border-gray-200 p-10 text-center">
 
-      <div className="w-full max-w-3xl bg-white rounded-3xl
-                      shadow-[0_25px_80px_rgba(0,0,0,0.1)]
-                      p-16 text-center">
-
-        <h2 className="text-4xl font-bold mb-4">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-3">
           Upload Your{" "}
-          <span className="bg-linear-to-br from-purple-600 to-pink-500 
-                           bg-clip-text text-transparent">
+          <span className="text-purple-600">
             Content
           </span>
         </h2>
 
-        <p className="text-gray-600 mb-12 text-lg">
-          Drop your PDF and receive AI-powered engagement insights instantly.
+        <p className="text-gray-500 mb-8 text-sm sm:text-base">
+          Upload a PDF or image and receive engagement insights instantly.
         </p>
 
         <div
@@ -102,23 +98,23 @@ function UploadCard({ setResult }) {
           onDragOver={handleDrag}
           onDrop={handleDrop}
           onClick={() => inputRef.current.click()}
-          className={`border-2 border-dashed rounded-2xl p-14 transition-all duration-300 cursor-pointer
+          className={`border-2 border-dashed rounded-xl p-8 transition-all duration-300 cursor-pointer
             ${
               dragActive
-                ? "border-purple-600 bg-purple-50 scale-105"
-                : "border-purple-300 hover:border-purple-500"
+                ? "border-purple-600 bg-purple-50"
+                : "border-gray-300 hover:border-purple-500"
             }`}
         >
-          <p className="text-gray-500 mb-4 text-lg">
-            Drag & drop your PDF here
+          <p className="text-gray-500 mb-2 text-sm">
+            Drag & drop your PDF or Image here
           </p>
 
-          <p className="text-sm text-gray-400 mb-6">
+          <p className="text-xs text-gray-400 mb-4">
             or click to browse files
           </p>
 
           {file && (
-            <p className="text-purple-600 font-medium mb-6">
+            <p className="text-purple-600 text-sm font-medium mb-4">
               Selected: {file.name}
             </p>
           )}
@@ -126,7 +122,7 @@ function UploadCard({ setResult }) {
           <input
             ref={inputRef}
             type="file"
-            accept="application/pdf"
+            accept=".pdf,image/*"
             onChange={(e) => setFile(e.target.files[0])}
             className="hidden"
           />
@@ -137,18 +133,20 @@ function UploadCard({ setResult }) {
               handleUpload();
             }}
             disabled={loading}
-            className="px-10 py-4 rounded-xl text-white font-medium text-lg
-                       bg-linear-to-br from-purple-600 to-pink-500
-                       shadow-lg hover:shadow-xl hover:scale-105
-                       transition duration-300 disabled:opacity-50"
+            className="px-6 py-2.5 rounded-lg text-white text-sm font-medium
+                       bg-gradient-to-r from-purple-600 to-pink-500
+                       hover:opacity-90 transition
+                       disabled:opacity-50"
           >
             {loading ? "Analyzing..." : "Analyze Content"}
           </button>
         </div>
       </div>
-    </section>
-  );
+
+    </div>
+  </section>
+);
+
 }
 
 export default UploadCard;
-

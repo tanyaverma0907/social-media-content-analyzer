@@ -5,7 +5,7 @@ function LeftHero() {
     <div className="flex flex-col justify-center space-y-6">
 
 
-      <h1 className="text-5xl font-bold leading-tight text-gray-900">
+      <h1 className="text-4xl font-bold leading-tight text-gray-900">
         Optimize Your Content With{" "}
         <span className="bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
           Engagement Intelligence
@@ -13,7 +13,7 @@ function LeftHero() {
       </h1>
 
  
-      <p className="text-lg text-gray-600 max-w-xl">
+      <p className="text-1xl text-gray-600 max-w-xl">
         Upload your social media content and receive instant AI-powered
         engagement insights, performance metrics, and improvement suggestions.
       </p>
@@ -42,3 +42,4 @@ function LeftHero() {
 }
 
 export default LeftHero;
+
